@@ -1,0 +1,371 @@
+/* =========================================
+   Engeli Godø A - Responsive Styles
+   Mobile First Breakpoints:
+   - Base: Mobile (320px+)
+   - Tablet: 768px+
+   - Desktop: 1024px+
+   - Large: 1200px+
+   ========================================= */
+
+/* =========================================
+   Tablet Styles (768px+)
+   ========================================= */
+@media (min-width: 768px) {
+    /* Typography */
+    h1 {
+        font-size: var(--text-5xl);
+    }
+
+    h2 {
+        font-size: var(--text-3xl);
+    }
+
+    /* Header */
+    .header__logo-tagline {
+        display: block;
+    }
+
+    /* Hero */
+    .hero {
+        min-height: 90vh;
+    }
+
+    .hero__title {
+        font-size: var(--text-5xl);
+    }
+
+    .hero__stats {
+        max-width: 600px;
+    }
+
+    /* Services Grid */
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Why Us */
+    .why-us__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Service Area */
+    .service-area__locations {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Service Details */
+    .service-detail__inner {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .service-detail:nth-child(even) .service-detail__inner {
+        direction: rtl;
+    }
+
+    .service-detail:nth-child(even) .service-detail__inner > * {
+        direction: ltr;
+    }
+
+    /* About */
+    .about-intro {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .area-columns {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Projects */
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Contact */
+    .contact-grid {
+        grid-template-columns: 1fr 1.2fr;
+    }
+
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-lg);
+    }
+
+    /* Footer */
+    .footer__inner {
+        grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    }
+
+    .footer__bottom {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+}
+
+/* =========================================
+   Desktop Styles (1024px+)
+   ========================================= */
+@media (min-width: 1024px) {
+    /* Navigation */
+    .nav {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+
+    .mobile-nav {
+        display: none;
+    }
+
+    /* Hero */
+    .hero__content {
+        max-width: 650px;
+    }
+
+    /* Services Grid */
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Service Card */
+    .service-card {
+        padding: var(--space-2xl);
+    }
+
+    /* Why Us */
+    .why-us__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Values */
+    .values-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Projects */
+    .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* =========================================
+   Large Desktop Styles (1200px+)
+   ========================================= */
+@media (min-width: 1200px) {
+    /* Increase container padding */
+    :root {
+        --container-padding: 2rem;
+    }
+
+    /* Hero */
+    .hero__title {
+        font-size: 3.5rem;
+    }
+
+    /* Services Grid - 5 columns for homepage */
+    .services-grid--home {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    /* Service Detail */
+    .service-detail__content {
+        max-width: 550px;
+    }
+}
+
+/* =========================================
+   Print Styles
+   ========================================= */
+@media print {
+    .header,
+    .mobile-nav,
+    .quick-contact,
+    .cta,
+    .footer {
+        display: none;
+    }
+
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+        color: #000;
+        background: #fff;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 20pt 0;
+    }
+
+    .section {
+        padding: 20pt 0;
+    }
+
+    a {
+        text-decoration: underline;
+    }
+
+    .btn {
+        display: none;
+    }
+}
+
+/* =========================================
+   Reduced Motion
+   ========================================= */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* =========================================
+   Dark Mode Support (Future)
+   ========================================= */
+@media (prefers-color-scheme: dark) {
+    /* Can be enabled in future */
+}
+
+/* =========================================
+   High Contrast Mode
+   ========================================= */
+@media (prefers-contrast: high) {
+    :root {
+        --color-primary: #1a4028;
+        --color-text: #000;
+        --color-text-light: #333;
+    }
+
+    .btn--primary {
+        border-width: 3px;
+    }
+
+    .service-card,
+    .value-card,
+    .contact-form-wrapper {
+        border-width: 2px;
+        border-color: var(--color-text);
+    }
+}
+
+/* =========================================
+   Touch Device Optimizations
+   ========================================= */
+@media (hover: none) and (pointer: coarse) {
+    /* Remove hover effects on touch devices */
+    .service-card:hover,
+    .project-card:hover {
+        transform: none;
+    }
+
+    /* Increase touch targets */
+    .nav__link {
+        padding: var(--space-md) var(--space-sm);
+    }
+
+    .btn {
+        min-height: 48px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        min-height: 48px;
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+}
+
+/* =========================================
+   Landscape Phone
+   ========================================= */
+@media (max-width: 767px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding-top: calc(var(--header-height) + var(--space-xl));
+        padding-bottom: var(--space-xl);
+    }
+
+    .hero__stats {
+        margin-top: var(--space-xl);
+    }
+}
+
+/* =========================================
+   Small Phone Adjustments
+   ========================================= */
+@media (max-width: 374px) {
+    :root {
+        --text-4xl: 2rem;
+        --text-3xl: 1.5rem;
+        --container-padding: 1rem;
+    }
+
+    .hero__buttons {
+        flex-direction: column;
+    }
+
+    .hero__buttons .btn {
+        width: 100%;
+    }
+
+    .service-area__locations {
+        grid-template-columns: 1fr;
+    }
+
+    .cta__buttons {
+        flex-direction: column;
+    }
+
+    .cta__buttons .btn {
+        width: 100%;
+    }
+}
+
+/* =========================================
+   Focus Visible Styles (Accessibility)
+   ========================================= */
+:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.btn:focus-visible {
+    outline-offset: 4px;
+}
+
+/* Hide focus outline for mouse users */
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* =========================================
+   Skip Link (Accessibility)
+   ========================================= */
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: var(--space-md) var(--space-xl);
+    border-radius: var(--radius-md);
+    z-index: 10000;
+    transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+    top: var(--space-md);
+}
